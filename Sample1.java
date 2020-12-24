@@ -2,7 +2,8 @@ class Sample1
 {
   public static void main(String[] args)
   {
-    System.out.print("ようこそJavaへ！");
-    System.out.print("Javaを始めましょう！");
+    int num;
+    num = 3;
+    System.out.println("変数numの値は" + num + "です。");
   }
 }
