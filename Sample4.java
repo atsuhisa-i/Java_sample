@@ -1,9 +1,16 @@
+import java.io.*;
+
 class Sample4
 {
-  public static void main(String[] args)
+  public static void main(String[] args) throws IOException
   {
-    // バックスラッシュ二回でバックスラッシュを表示する。¥を表示したい場合は¥を一回記載。
-    System.out.println("円記号を表示します。:\\");
-    System.out.println("アポストロフィを表示します。:\'");
+    System.out.println("文字列を入力して下さい。");
+
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
+
+    System.out.println(str + "が入力されました。");
   }
 }
