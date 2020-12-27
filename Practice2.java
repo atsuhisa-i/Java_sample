@@ -1,16 +1,18 @@
 import java.io.*;
 
-class Sample4
+class Practice2
 {
   public static void main(String[] args) throws IOException
   {
-    System.out.println("文字列を入力して下さい。");
+    System.out.println("円周率の値はいくつですか？");
 
     BufferedReader br =
       new BufferedReader(new InputStreamReader(System.in));
     
     String str = br.readLine();
 
-    System.out.println(str + "が入力されました。");
+    float num = Float.parseFloat(str);
+
+    System.out.println("円周率の値は" + num + "です。");
   }
 }
