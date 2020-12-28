@@ -4,26 +4,18 @@ class Sample6
 {
   public static void main(String[] args) throws IOException
   {
-    System.out.println("整数を3つ入力して下さい。");
+    System.out.println("整数を2つ入力して下さい。");
 
     BufferedReader br =
       new BufferedReader(new InputStreamReader(System.in));
     
     String str1 = br.readLine();
     String str2 = br.readLine();
-    String str3 = br.readLine();
 
-    int sum = 0;
+    int num1 = Integer.parseInt(str1);
+    int num2 = Integer.parseInt(str2);
 
-    sum = sum + Integer.parseInt(str1);
-    sum = sum + Integer.parseInt(str2);
-    sum = sum + Integer.parseInt(str3);
-
-    // 以下の書き方も同じ結果になる。
-    // sum += Integer.parseInt(str1);
-    // sum += Integer.parseInt(str2);
-    // sum += Integer.parseInt(str3);
-
-    System.out.println("3つの数の合計は" + sum + "です。");
+    System.out.println("最初に" + num1 + "が入力されました。");
+    System.out.println("次に" + num2 + "が入力されました。");
   }
 }

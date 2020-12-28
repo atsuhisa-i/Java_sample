@@ -1,20 +1,15 @@
-import java.io.*;
-
 class Sample3
 {
-  public static void main(String[] args) throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("整数を2つ入力して下さい。");
+    int num1, num2;
+    num1 = 3;
 
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str1 = br.readLine();
-    String str2 = br.readLine();
+    System.out.println("変数num1の値は" + num1 + "です。");
 
-    int num1 = Integer.parseInt(str1);
-    int num2 = Integer.parseInt(str2);
+    num2 = num1;
 
-    System.out.println("足し算の結果は" + (num1+num2) + "です。");
+    System.out.println("変数num1の値を変数num2に代入しました。");
+    System.out.println("変数num2の値は" + num2 + "です。");
   }
 }
