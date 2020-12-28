@@ -1,12 +1,12 @@
 import java.io.*;
 
-class Sample3
+class Practice6
 {
   public static void main(String[] args) throws IOException
   {
-    System.out.println("整数を2つ入力して下さい。");
+    System.out.println("三角形の高さと底辺を入力して下さい。");
 
-    BufferedReader br =
+    BufferedReader br = 
       new BufferedReader(new InputStreamReader(System.in));
     
     String str1 = br.readLine();
@@ -15,6 +15,9 @@ class Sample3
     int num1 = Integer.parseInt(str1);
     int num2 = Integer.parseInt(str2);
 
-    System.out.println("足し算の結果は" + (num1+num2) + "です。");
+    int ans = (num1 * num2)/2;
+
+    System.out.println("三角形の面積は" + ans + "です。");
+
   }
 }
