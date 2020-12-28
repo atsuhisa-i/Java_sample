@@ -1,12 +1,18 @@
+import java.io.*;
+
 class Sample5
 {
-  public static void main(String[] args)
+  public static void main(String[] args) throws IOException
   {
-    int a = 0;
-    int b = 0;
+    System.out.println("整数を入力して下さい。");
 
-    b = ++a;
-    System.out.println("代入前にインクリメントしたのでbの値は" + b + "です。");
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
 
+    String str = br.readLine();
+
+    int num = Integer.parseInt(str);
+
+    System.out.println(num + "が入力されました。");
   }
 }
