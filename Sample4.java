@@ -1,16 +1,15 @@
-import java.io.*;
-
 class Sample4
 {
-  public static void main(String[] args) throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("文字列を入力して下さい。");
+    int num1 = 10;
+    int num2 = 5;
 
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str = br.readLine();
-
-    System.out.println(str + "が入力されました。");
+    System.out.println("num1とnum2にいろいろな演算を行います。");
+    System.out.println("num1+num2は" + (num1+num2) + "です。");
+    System.out.println("num1-num2は" + (num1-num2) + "です。");
+    System.out.println("num1*num2は" + (num1*num2) + "です。");
+    System.out.println("num1/num2は" + (num1/num2) + "です。");
+    System.out.println("num1%num2は" + (num1%num2) + "です。");
   }
 }
