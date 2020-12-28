@@ -1,17 +1,22 @@
+import java.io.*;
+
 class Sample2
 {
-  public static void main(String[] args)
+  public static void main(String[] args) throws IOException
   {
-    int num1 = 2;
-    int num2 = 3;
-    int sum = num1 + num2;
+    System.out.println("整数を入力して下さい。");
 
-    System.out.println("変数num1の値は" + num1 + "です。");
-    System.out.println("変数num2の値は" + num2 + "です。");
-    System.out.println("num1+num2の値は" + sum + "です。");
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
+    int res = Integer.parseInt(str);
 
-    num1 = num1+1;
+    if(res == 1){
+      System.out.println("1が入力されました。");
+      System.out.println("1が選択されました。");
+    }
 
-    System.out.println("変数num1の値に1を足すと" + num1 + "です。");
+    System.out.println("処理を終了します。");
   }
 }
