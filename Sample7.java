@@ -1,10 +1,26 @@
+import java.io.*;
+
 class Sample7
 {
-  public static void main(String args[])
+  public static void main(String args[]) throws IOException
   {
-    // 下記は1+2にカッコを付けないと文字列として連結される。
-    System.out.println("1+2は" + 1+2 + "です。");
-    // 下記は+よりも*の方が優先順位が高いため、先に3*4が計算される。
-    System.out.println("3+4は" + 3*4 + "です。");
+    System.out.println("あなたは男性ですか。");
+    System.out.println("YまたはNを入力して下さい。");
+
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
+    char res = str.charAt(0);
+
+    if(res == 'Y' || res == 'y'){
+      System.out.println("あなたは男性ですね。");
+    }
+    else if(res == 'N' || res == 'n'){
+      System.out.println("あなたは女性ですね。");
+    }
+    else{
+      System.out.println("YまたはNを入力して下さい。");
+    }
   }
 }
