@@ -4,7 +4,7 @@ class Practice1
 {
   public static void main(String[] args) throws IOException
   {
-    System.out.println("あなたは何歳ですか？");
+    System.out.println("整数を入力して下さい。");
 
     BufferedReader br =
       new BufferedReader(new InputStreamReader(System.in));
@@ -13,6 +13,11 @@ class Practice1
 
      int num = Integer.parseInt(str);
 
-     System.out.println("あなたは" + num + "歳です。");
+     if(num % 2 == 0)
+     {
+       System.out.println(num + "は偶数です。");
+     } else {
+       System.out.println(num + "は奇数です。");
+     }
   }
 }
