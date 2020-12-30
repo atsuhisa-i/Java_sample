@@ -1,27 +1,14 @@
-import java.io.*;
-
 class Sample5
 {
-  public static void main(String[] args) throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("整数を入力して下さい。");
+    int i = 1;
 
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str = br.readLine();
-    int res = Integer.parseInt(str);
-
-    switch(res){
-      case 1:
-        System.out.println("1が入力されました。");
-        break;
-      case 2:
-        System.out.println("2が入力されました。");
-        break;
-      default:
-        System.out.println("1か2を入力して下さい。");
-        break;
+    while(i <= 5){
+      System.out.println(i + "番目の繰り返しです。");
+      // 下記を記述しておかないと永久にwhile文の処理が繰り返されてプログラムが終了しない。
+      i++;
     }
+    System.out.println("繰り返しが終わりました。");
   }
 }

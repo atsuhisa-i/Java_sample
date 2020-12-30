@@ -1,16 +1,21 @@
+import java.io.*;
+
 class Sample11
 {
-  public static void main(String[] args)
+  public static void main(String[] args)throws IOException
   {
-    int num1 = 5;
-    int num2 = 4;
+    System.out.println("何番目の処理を飛ばしますか？(1~10)");
 
-    // 下記の書き方だとint型で出力されるため、結果は1.0となる。
-    // double div = num1 / num2;
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
+    int res = Integer.parseInt(str);
 
-    // 下記の書き方でdouble型の演算が行われるようになり、結果が1.25となる。
-    double div = (double)num1 / (double)num2;
-
-    System.out.println("5/4は" + div + "です。");
+    for(int i=1; i<=10; i++){
+      if(i == res)
+        continue;
+      System.out.println(i + "番目の処理です。");
+    }
   }
 }
