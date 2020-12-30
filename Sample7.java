@@ -1,26 +1,11 @@
-import java.io.*;
-
 class Sample7
 {
-  public static void main(String args[]) throws IOException
+  public static void main(String args[])
   {
-    System.out.println("あなたは男性ですか。");
-    System.out.println("YまたはNを入力して下さい。");
-
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str = br.readLine();
-    char res = str.charAt(0);
-
-    if(res == 'Y' || res == 'y'){
-      System.out.println("あなたは男性ですね。");
-    }
-    else if(res == 'N' || res == 'n'){
-      System.out.println("あなたは女性ですね。");
-    }
-    else{
-      System.out.println("YまたはNを入力して下さい。");
+    for(int i=0; i<5; i++){
+      for(int j=0; j<3; j++){
+        System.out.println("iは" + i + ":jは" + j);
+      }
     }
   }
 }
