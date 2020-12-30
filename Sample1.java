@@ -1,20 +1,10 @@
-import java.io.*;
-
 class Sample1
 {
-  public static void main(String[] args) throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("整数を入力して下さい。");
-    
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str = br.readLine();
-    int res = Integer.parseInt(str);
-
-    if(res == 1)
-      System.out.println("1が入力されました。");
-    
-    System.out.println("処理を終了します。");
+    for(int i=1; i<=5; i++){
+      System.out.println("繰り返しています。");
+    }
+    System.out.println("繰り返しが終わりました。");
   }
 }
