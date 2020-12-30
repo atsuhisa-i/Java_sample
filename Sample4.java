@@ -1,15 +1,25 @@
+import java.io.*;
+
 class Sample4
 {
-  public static void main(String[] args)
+  public static void main(String[] args) throws IOException
   {
-    int num1 = 10;
-    int num2 = 5;
+    System.out.println("整数を入力して下さい。");
 
-    System.out.println("num1とnum2にいろいろな演算を行います。");
-    System.out.println("num1+num2は" + (num1+num2) + "です。");
-    System.out.println("num1-num2は" + (num1-num2) + "です。");
-    System.out.println("num1*num2は" + (num1*num2) + "です。");
-    System.out.println("num1/num2は" + (num1/num2) + "です。");
-    System.out.println("num1%num2は" + (num1%num2) + "です。");
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
+    int res = Integer.parseInt(str);
+
+    if(res == 1){
+      System.out.println("1が入力されました。");
+    }
+    else if(res == 2){
+      System.out.println("2が入力されました。");
+    }
+    else{
+      System.out.println("1か2を入力して下さい。");
+    }
   }
 }

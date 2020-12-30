@@ -1,25 +1,41 @@
+import java.io.*;
+
 class Practice4
 {
-  public static void main(String[] args)
+  public static void main(String[] args) throws IOException
   {
-    int num = 0 - 4;
+    System.out.println("成績を入力して下さい。");
 
-    System.out.println("0-4は" + num + "です。");
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
 
-    double num2 = 3.14 * 2;
+    int res = Integer.parseInt(str);
 
-    System.out.println("3.14*2は" + num2 + "です。");
-
-    double num3 = (double)5/3;
-
-    System.out.println("5÷3は" + num3 + "です。");
-
-    int num4 = 30%7;
-
-    System.out.println("30÷7の余りの数は" + num4 + "です。");
-
-    double num5 = (double)(7+32)/5;
-
-    System.out.println("(7+32)÷5は" + num5 + "です。");
+    if(res == 1)
+    {
+      System.out.println("もっと頑張りましょう。");
+    }
+    else if(res == 2)
+    {
+      System.out.println("もう少し頑張りましょう。");
+    }
+    else if(res == 3)
+    {
+      System.out.println("さらに上を目指しましょう。");
+    }
+    else if(res == 4)
+    {
+      System.out.println("大変よくできました。");
+    }
+    else if(res == 5)
+    {
+      System.out.println("大変優秀です。");
+    }
+    else
+    {
+      System.out.println("1~5を入力して下さい。");
+    }
   }
 }

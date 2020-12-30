@@ -1,14 +1,20 @@
+import java.io.*;
+
 class Sample8
 {
-  public static void main(String[] args)
+  public static void main(String[] args) throws IOException
   {
-    int inum = 160;
+    System.out.println("何番目のコースにしますか。");
+    System.out.println("整数を入力して下さい。");
 
-    System.out.println("身長は" + inum + "センチです。");
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
+    int res = Integer.parseInt(str);
 
-    System.out.println("double型の変数を代入します。");
-    double dnum = inum;
+    char ans = (res == 1) ? 'A' : 'B';
 
-    System.out.println("身長は" + dnum + "センチです。");
+    System.out.println(ans + "コースを選択しました。");
   }
 }
