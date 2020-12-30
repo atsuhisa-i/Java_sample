@@ -2,26 +2,15 @@ import java.io.*;
 
 class Sample6
 {
-  public static void main(String[] args) throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("aかbを入力して下さい。");
+    int i = 1;
 
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str = br.readLine();
-    char res = str.charAt(0);
+    do{
+      System.out.println(i + "番目の繰り返しです。");
+      i++;
+    }while(i <= 5);
 
-    switch(res){
-      case 'a':
-        System.out.println("aが入力されました。");
-        break;
-      case 'b':
-        System.out.println("bが入力されました。");
-        break;
-      default:
-        System.out.println("aかbを入力して下さい。");
-        break;
-    }
+    System.out.println("繰り返しが終わりました。");
   }
 }
