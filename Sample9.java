@@ -1,14 +1,21 @@
+import java.io.*;
+
 class Sample9
 {
-  public static void main(String[] args)
+  public static void main(String[] args)throws IOException
   {
-    double dnum = 160.5;
+    System.out.println("何番目でループを中止しますか？(1~10)");
+    
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
+    int res = Integer.parseInt(str);
 
-    System.out.println("身長は" + dnum + "センチです。");
-
-    System.out.println("int型の変数に代入します。");
-    int inum = (int)dnum;
-
-    System.out.println("身長は" + inum + "センチです。");
+    for(int i=1; i<=10; i++){
+      System.out.println(i + "番目の処理です。");
+      if(i == res)
+        break;
+    }
   }
 }
