@@ -4,19 +4,16 @@ class Sample3
 {
   public static void main(String[] args) throws IOException
   {
-    System.out.println("整数を入力して下さい。");
+    System.out.println("いくつ*を出力しますか？");
 
     BufferedReader br =
       new BufferedReader(new InputStreamReader(System.in));
     
     String str = br.readLine();
-    int res = Integer.parseInt(str);
+    int num = Integer.parseInt(str);
 
-    if(res == 1){
-      System.out.println("1が入力されました。");
-    }
-    else{
-      System.out.println("1以外が入力されました。");
+    for(int i=1; i<=num; i++){
+      System.out.print("*");
     }
   }
 }
