@@ -1,11 +1,42 @@
+class Car
+{
+  int num;
+  double gas;
+
+  void setNum(int n)
+  {
+    num = n;
+    System.out.println("ナンバーを" + num + "にしました。");
+  }
+
+  void setGas(double g)
+  {
+    gas = g;
+    System.out.println("ガソリン量を" + gas + "にしました。");
+  }
+
+  // void show()
+  // {
+  //   System.out.println("車のナンバーは" + num + "です。");
+  //   System.out.println("ガソリン量は" + gas + "です。");
+  // }
+}
+
+
 class Sample4
 {
   public static void main(String[] args)
   {
-    int[] test = {80,60,22,50,75};
+    Car car1 = new Car();
 
-    for(int i=0; i<5; i++){
-      System.out.println((i+1) + "番目の人の点数は" + test[i] + "です。");
-    }
+    car1.setNum(1234);
+    car1.setGas(20.5);
+
+    // 下記のように、実引数に変数を使うことも可能。
+    int number = 1234;
+    double gasoline = 20.5;
+
+    car1.setNum(number);
+    car1.setGas(gasoline);
   }
 }
