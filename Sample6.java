@@ -1,41 +1,43 @@
-import java.io.*;
+class Car
+{
+  int num;
+  double gas;
+
+  int getNum()
+  {
+    System.out.println("ナンバーを調べました。");
+    return num;
+  }
+  double getGas()
+  {
+    System.out.println("ガソリン量を調べました。");
+    return gas;
+  }
+  void setNumGas(int n, double g)
+  {
+    num = n;
+    gas = g;
+    System.out.println("車のナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+  }
+  void show()
+  {
+    System.out.println("車のナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
+  }
+}
 
 class Sample6
 {
   public static void main(String[] args)
   {
-    int[] test1;
-    test1 = new int[3];
-    System.out.println("test1を宣言しました。");
-    System.out.println("配列要素を確保しました。");
+    Car car1 = new Car();
 
-    test1[0] = 80;
-    test1[1] = 60;
-    test1[2] = 22;
+    car1.setNumGas(1234, 20.5);
 
-    int[] test2;
-    System.out.println("test2を宣言しました。");
+    int number = car1.getNum();
+    double gasoline = car1.getGas();
 
-    test2 = test1;
-    System.out.println("test2にtest1を代入しました。");
-
-    for(int i=0; i<3; i++){
-      System.out.println("test1がさす" + (i+1) + "番目の人の点数は" + test1[i] + "です。");
-    }
-
-    for(int i=0; i<3; i++){
-      System.out.println("test2がさす" + (i+1) + "番目の人の点数は" + test2[i] + "です。");
-    }
-
-    test1[2] = 100;
-    System.out.println("test1がさす3番目の人の点数を変更します。");
-
-    for(int i=0; i<3; i++){
-      System.out.println("test1がさす" + (i+1) + "番目の人の点数は" + test1[i] + "です。");
-    }
-
-    for(int i=0; i<3; i++){
-      System.out.println("test2がさす" + (i+1) + "番目の人の点数は" + test2[i] + "です。");
-    }
+    System.out.println("サンプルから車を調べたところ");
+    System.out.println("ナンバーは" + number + "ガソリン量は" + gasoline + "でした。");
   }
 }
