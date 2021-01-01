@@ -2,20 +2,15 @@ import java.io.*;
 
 class Sample11
 {
-  public static void main(String[] args)throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("何番目の処理を飛ばしますか？(1~10)");
-
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
+    int[][] test = {
+      {80,60,22,50},{90,55,68,72},{33,75,63}
+    };
     
-    String str = br.readLine();
-    int res = Integer.parseInt(str);
-
-    for(int i=1; i<=10; i++){
-      if(i == res)
-        continue;
-      System.out.println(i + "番目の処理です。");
+    for(int i=0; i<test.length; i++){
+      System.out.println((i+1) + 
+        "番目の配列要素の長さは" + test[i].length + "です。");
     }
   }
 }

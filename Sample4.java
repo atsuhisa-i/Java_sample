@@ -1,22 +1,11 @@
-import java.io.*;
-
 class Sample4
 {
-  public static void main(String[] args) throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("いくつまでの合計を求めますか？");
+    int[] test = {80,60,22,50,75};
 
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str = br.readLine();
-    int num = Integer.parseInt(str);
-
-    int sum = 0;
-    for(int i=1; i<=num; i++){
-      sum+=i;
+    for(int i=0; i<5; i++){
+      System.out.println((i+1) + "番目の人の点数は" + test[i] + "です。");
     }
-
-    System.out.println("1から" + num + "までの合計は" + sum + "です。");
   }
 }
