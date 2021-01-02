@@ -1,18 +1,20 @@
+class Car
+{
+  int num;
+  double gas;
+}
+
 class Sample1
 {
   public static void main(String[] args)
   {
-    int[] test;
-    test = new int[5];
+    Car car1;
+    car1 = new Car();
 
-    test[0] = 80;
-    test[1] = 60;
-    test[2] = 22;
-    test[3] = 50;
-    test[4] = 75;
+    car1.num = 1234;
+    car1.gas = 20.5;
 
-    for(int i=0; i<=5; i++){
-      System.out.println((i+1) + "番目の人の点数は" + test[i] + "です。");
-    }
+    System.out.println("車のナンバーは" + car1.num + "です。");
+    System.out.println("ガソリン量は" + car1.gas + "です。");
   }
 }

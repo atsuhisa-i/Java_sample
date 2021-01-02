@@ -1,34 +1,37 @@
-import java.io.*;
+class MyPoint
+{
+  int x;
+  int y;
+  void setX(int px)
+  {
+    x = px;
+  }
+  void setY(int py)
+  {
+    y = py;
+  }
+  int getX()
+  {
+    return x;
+  }
+  int getY()
+  {
+    return y;
+  }
+}
 
 class Practice1
 {
-  public static void main(String[] args)throws IOException
+  public static void main(String[] args)
   {
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
+    MyPoint p1;
+    p1 = new MyPoint();
+    p1.setX(10);
+    p1.setY(5);
 
-    int[] test = new int[5];
-    System.out.println(test.length + "人のテストの点数を入力して下さい。");
+    int px = p1.getX();
+    int py = p1.getY();
 
-    for(int i=0; i<test.length; i++){
-      String str = br.readLine();
-      int res = Integer.parseInt(str);
-      test[i] = res;
-    }
-
-    int max = 0;
-
-    for(int i=0; i<test.length; i++){
-      if(max < test[i]){
-        max = test[i];
-      }
-    }
-    
-    for(int i=0; i<test.length; i++ )
-    {
-      System.out.println((i+1) + "番目の人の点数は" + test[i] + "です。");
-    }
-
-    System.out.println("最高点は" + max + "点です。");
+    System.out.println("X座標は" + px + "Y座標は" + py + "でした。");
   }
 }

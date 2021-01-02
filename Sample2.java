@@ -1,30 +1,26 @@
-import java.io.*;
+class Car
+{
+  int num;
+  double gas;
+
+  void show()
+  {
+    System.out.println("車のナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
+  }
+}
 
 class Sample2
 {
-  public static void main(String[] args) throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("テストの受験者数を入力して下さい。");
+    Car car1;
+    car1 = new Car();
 
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
+    car1.num = 1234;
+    car1.gas = 20.5;
 
-    String str = br.readLine();
-    int num = Integer.parseInt(str);
-
-    int[] test;
-    test = new int[num];
-
-    System.out.println("人数分の点数を入力して下さい。");
-
-    for(int i=0; i<num; i++){
-      str = br.readLine();
-      int tmp = Integer.parseInt(str);
-      test[i] = tmp;
-    }
-
-    for(int i=0; i<num; i++){
-      System.out.println((i+1) + "番目の人の点数は" + test[i] + "です。");
-    }
+    car1.show();
+    car1.show();
   }
 }
