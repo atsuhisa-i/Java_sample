@@ -1,25 +1,19 @@
 class Car
 {
-  int num;
-  double gas;
+  private int num;
+  private double gas;
 
-  void setNum(int n)
+  public Car()
   {
-    num = n;
-    System.out.println("ナンバーを" + num + "にしました。");
+    num = 0;
+    gas = 0.0;
+    System.out.println("車を作成しました。");
   }
-
-  void setGas(double g)
+  public void show()
   {
-    gas = g;
-    System.out.println("ガソリン量を" + gas + "にしました。");
+    System.out.println("車のナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
   }
-
-  // void show()
-  // {
-  //   System.out.println("車のナンバーは" + num + "です。");
-  //   System.out.println("ガソリン量は" + gas + "です。");
-  // }
 }
 
 
@@ -29,14 +23,6 @@ class Sample4
   {
     Car car1 = new Car();
 
-    car1.setNum(1234);
-    car1.setGas(20.5);
-
-    // 下記のように、実引数に変数を使うことも可能。
-    int number = 1234;
-    double gasoline = 20.5;
-
-    car1.setNum(number);
-    car1.setGas(gasoline);
+    car1.show();
   }
 }
