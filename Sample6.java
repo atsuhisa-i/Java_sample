@@ -1,25 +1,22 @@
 class Car
 {
-  int num;
-  double gas;
+  private int num;
+  private double gas;
 
-  int getNum()
+  public Car()
   {
-    System.out.println("ナンバーを調べました。");
-    return num;
+    num = 0;
+    gas = 0.0;
+    System.out.println("車を作成しました。");
   }
-  double getGas()
+  public Car(int n, double g)
   {
-    System.out.println("ガソリン量を調べました。");
-    return gas;
-  }
-  void setNumGas(int n, double g)
-  {
+    this();
     num = n;
     gas = g;
-    System.out.println("車のナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
   }
-  void show()
+  public void show()
   {
     System.out.println("車のナンバーは" + num + "です。");
     System.out.println("ガソリン量は" + gas + "です。");
@@ -31,13 +28,9 @@ class Sample6
   public static void main(String[] args)
   {
     Car car1 = new Car();
+    car1.show();
 
-    car1.setNumGas(1234, 20.5);
-
-    int number = car1.getNum();
-    double gasoline = car1.getGas();
-
-    System.out.println("サンプルから車を調べたところ");
-    System.out.println("ナンバーは" + number + "ガソリン量は" + gasoline + "でした。");
+    Car car2 = new Car(1234, 20.5);
+    car2.show();
   }
 }
