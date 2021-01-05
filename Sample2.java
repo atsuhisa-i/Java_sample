@@ -1,44 +1,20 @@
-class Car
-{
-  private int num;
-  private double gas;
-
-  public void setNumGas(int n, double g)
-  {
-    if(g > 0 && g < 1000){
-      num = n;
-      gas = g;
-      System.out.println("ナンバーを" + num + "ガソリン量を" + gas + "にしました。");
-    }
-    else{
-      System.out.println(g + "は正しいガソリン量ではありません。");
-      System.out.println("ガソリン量を変更できませんでした。");
-    }
-  }
-  public void show()
-  {
-    System.out.println("車のナンバーは" + num + "です。");
-    System.out.println("ガソリン量は" + gas + "です。");
-  }
-}
+import java.io.*;
 
 class Sample2
 {
-  public static void main(String[] args)
+  public static void main(String[] args)throws IOException
   {
-    Car car1;
-    car1 = new Car();
+    System.out.println("英字を入力して下さい。");
 
-    // 下記のようなアクセスはできなくなる。
-    // car1.num = 1234;
-    // car1.gas = 20.5;
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
 
-    car1.setNumGas(1234, 20.5);
-    car1.show();
+    String stru = str.toUpperCase();
+    String strl = str.toLowerCase();
 
-    System.out.println("正しくないガソリン量(-10.0)を指定してみます・・・。");
-
-    car1.setNumGas(1234, -10.0);
-    car1.show();
+    System.out.println("大文字に変換すると" + stru + "です。");
+    System.out.println("小文字に変換すると" + strl + "です。");
   }
 }
