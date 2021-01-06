@@ -1,12 +1,20 @@
+import java.io.*;
+
 class Practice3
 {
-  public static void main(String[] args)
+  public static void main(String[] args)throws IOException
   {
-    for(int i=1; i<=9; i++){
-      for(int j=1; j<=9; j++){
-        System.out.print(i*j + "\t");
-      }
-      System.out.print("\n");
-    }
+    System.out.println("文字列を入力して下さい");
+
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str = br.readLine();
+
+    StringBuffer sb = new StringBuffer(str);
+    sb.reverse();
+
+    System.out.println(str + "の文字順を逆にすると" + sb + "になります。");
+    
   }
 }
