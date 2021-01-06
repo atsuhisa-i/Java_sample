@@ -1,32 +1,44 @@
-import java.io.*;
+class Car
+{
+  private int num;
+  private double gas;
+
+  public Car()
+  {
+    num = 0;
+    gas = 0.0;
+    System.out.println("車を作成しました。");
+  }
+  public void setCar(int n, double g)
+  {
+    num = n;
+    gas = g;
+    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+  }
+  public void show()
+  {
+    System.out.println("車のナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
+  }
+}
 
 class Sample9
 {
-  public static void main(String[] args)throws IOException
+  public static void main(String[] args)
   {
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
+    Car[] cars;
+    cars = new Car[3];
 
-    int[] test = new int[5];
-    System.out.println(test.length + "人の点数を入力して下さい。");
-
-    for(int i=0; i<test.length; i++){
-      String str = br.readLine();
-      test[i] = Integer.parseInt(str);
+    for(int i=0; i<cars.length; i++){
+      cars[i] = new Car();
     }
 
-    for(int s=0; s<test.length-1; s++){
-      for(int t=s+1; t<test.length; t++){
-        if(test[t] > test[s]){
-          int tmp = test[t];
-          test[t] = test[s];
-          test[s] = tmp;
-        }
-      }
-    }
+    cars[0].setCar(1234, 20.5);
+    cars[1].setCar(2345, 30.5);
+    cars[2].setCar(3456, 40.5);
 
-    for(int j=0; j<test.length; j++){
-      System.out.println((j+1) + "番目の人の点数は" + test[j] + "です。");
+    for(int i=0; i<cars.length; i++){
+      cars[i].show();
     }
   }
 }
