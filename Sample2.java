@@ -1,20 +1,59 @@
-import java.io.*;
+class Car
+{
+  private int num;
+  private double gas;
+
+  public Car()
+  {
+    num = 0;
+    gas = 0.0;
+    System.out.println("車を作成しました。");
+  }
+  public Car(int n, double g)
+  {
+    num = n;
+    gas = g;
+    System.out.println("ナンバー" + num + "ガソリン量" + gas + "の車を作成しました。");
+  }
+  public void setCar(int n, double g)
+  {
+    num = n;
+    gas = g;
+    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+  }
+  public void show()
+  {
+    System.out.println("車のナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
+  }
+}
+
+class RacingCar extends Car
+{
+  private int course;
+
+  public RacingCar()
+  {
+    course = 0;
+    System.out.println("レーシングカーを作成しました。");
+  }
+  public RacingCar(int n, double g, int c)
+  {
+    super(n, g);
+    course = c;
+    System.out.println("コース番号" + course + "のレーシングカーを作成しました。");
+  }
+  public void setCourse(int c)
+  {
+    course = c;
+    System.out.println("コース番号を" + course + "にしました。");
+  }
+}
 
 class Sample2
 {
-  public static void main(String[] args)throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("英字を入力して下さい。");
-
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str = br.readLine();
-
-    String stru = str.toUpperCase();
-    String strl = str.toLowerCase();
-
-    System.out.println("大文字に変換すると" + stru + "です。");
-    System.out.println("小文字に変換すると" + strl + "です。");
+    RacingCar rccar1 = new RacingCar(1234, 20.5, 5);
   }
 }
