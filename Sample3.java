@@ -1,46 +1,27 @@
-class Car
-{
-  private int num;
-  private double gas;
-
-  public void setCar(int n)
-  {
-    num = n;
-    System.out.println("ナンバーを" + num + "にしました。");
-  }
-  public void setCar(double g)
-  {
-    gas = g;
-    System.out.println("ガソリン量を" + gas + "にしました。");
-  }
-  public void setCar(int n, double g)
-  {
-    num = n;
-    gas = g;
-    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
-  }
-  public void show()
-  {
-    System.out.println("車のナンバーは" + num + "です。");
-    System.out.println("ガソリン量は" + gas + "です。");
-  }
-}
+import java.io.*;
 
 class Sample3
 {
-  public static void main(String[] args)
+  public static void main(String[] args)throws IOException
   {
-    Car car1 = new Car();
+    System.out.println("文字列を入力して下さい。");
 
-    car1.setCar(1234, 20.5);
-    car1.show();
+    BufferedReader br =
+      new BufferedReader(new InputStreamReader(System.in));
+    
+    String str1 = br.readLine();
 
-    System.out.println("車のナンバーだけ変更します。");
-    car1.setCar(2345);
-    car1.show();
+    System.out.println("検索文字を入力して下さい。");
 
-    System.out.println("ガソリン量だけ変更します。");
-    car1.setCar(30.5);
-    car1.show();
+    String str2 = br.readLine();
+    char ch = str2.charAt(0);
+
+    int num = str1.indexOf(ch);
+
+    if(num != -1)
+      System.out.println(str1 + "の" + (num+1)
+        + "番目に「" + ch + "」が見つかりました。");
+    else
+      System.out.println(str1 + "に「" + ch + "」はありません。");
   }
 }

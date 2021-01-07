@@ -4,22 +4,20 @@ class Practice5
 {
   public static void main(String[] args) throws IOException
   {
-    System.out.println("2以上の整数を入力して下さい。");
+    System.out.println("整数を2つ入力して下さい");
 
     BufferedReader br = 
-      new BufferedReader(new InputStreamReader(System.in));
+     new BufferedReader(new InputStreamReader(System.in));
     
-    String str = br.readLine();
-    int num = Integer.parseInt(str);
-    
-    for(int i=2; i<=num; i++){
-      if(i == num){
-        System.out.println(num + "は素数です。");
-      }
-      else if(num % i == 0){
-        System.out.println(num + "は素数ではありません。");
-        break;
-      }
-    }
+    String str1 = br.readLine();
+    int num1 = Integer.parseInt(str1);
+
+    String str2 = br.readLine();
+    int num2 = Integer.parseInt(str2);
+
+    int ans = Math.min(num1, num2);
+
+    System.out.println(num1 + "と" + num2 + "のうち小さい方は" + ans + "です。");
+
   }
 }
