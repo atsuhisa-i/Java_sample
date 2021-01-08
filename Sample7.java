@@ -1,7 +1,7 @@
 class Car
 {
-  private int num;
-  private double gas;
+  protected int num;
+  protected double gas;
 
   public Car()
   {
@@ -15,10 +15,10 @@ class Car
     gas = g;
     System.out.println("ナンバーを" + num + "ガソリン量を" + gas + "にしました。");
   }
-  public void show()
+  public String toString()
   {
-    System.out.println("車のナンバーは" + num + "です。");
-    System.out.println("ガソリン車は" + gas + "です。");
+    String str = "ナンバー：" + num + "ガソリン量：" + gas;
+    return str;
   }
 }
 
@@ -26,28 +26,9 @@ class Sample7
 {
   public static void main(String args[])
   {
-    Car car1;
-    System.out.println("car1を宣言しました。");
-    car1 = new Car();
+    Car car1 = new Car();
     car1.setCar(1234, 20.5);
 
-    Car car2;
-    System.out.println("car2を宣言しました。");
-
-    car2 = car1;
-    System.out.println("car2にcar1を代入しました。");
-
-    System.out.print("car1がさす");
-    car1.show();
-    System.out.print("car2がさす");
-    car2.show();
-
-    System.out.println("car1がさす車に変更を加えます。");
-    car1.setCar(2345, 30.5);
-
-    System.out.println("car1がさす");
-    car1.show();
-    System.out.println("car2がさす");
-    car2.show();
+    System.out.println(car1);
   }
 }
