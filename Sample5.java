@@ -1,22 +1,57 @@
-import java.io.*;
+class Car
+{
+  protected int num;
+  protected double gas;
+
+  public Car()
+  {
+    num = 0;
+    gas = 0.0;
+    System.out.println("車を作成しました。");
+  }
+  public void setCar(int n, double g)
+  {
+    num = n;
+    gas = g;
+    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+  }
+  public void show()
+  {
+    System.out.println("車のナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
+  }
+}
+
+class RacingCar extends Car
+{
+  private int course;
+
+  public RacingCar()
+  {
+    course = 0;
+    System.out.println("レーシングカーを作成しました。");
+  }
+  public void setCourse(int c)
+  {
+    course = c;
+    System.out.println("コース番号を" + course + "にしました。");
+  }
+  public void show()
+  {
+    System.out.println("レーシングカーのナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
+    System.out.println("コース番号は" + course + "です。");
+  }
+}
 
 class Sample5
 {
-  public static void main(String[] args)throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("整数を2つ入力して下さい。");
+    Car car1;
+    car1 = new RacingCar();
 
-    BufferedReader br = 
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str1 = br.readLine();
-    String str2 = br.readLine();
-
-    int num1 = Integer.parseInt(str1);
-    int num2 = Integer.parseInt(str2);
-
-    int ans = Math.max(num1, num2);
-
-    System.out.println(num1 + "と" + num2 + "のうち大きい方は" + ans + "です。");
+    car1.setCar(1234, 20.5);
+    car1.show();
   }
 }

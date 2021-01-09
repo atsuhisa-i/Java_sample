@@ -1,27 +1,56 @@
-import java.io.*;
+class Car
+{
+  protected int num;
+  protected double gas;
+
+  public Car()
+  {
+    num = 0;
+    gas = 0.0;
+    System.out.println("車を作成しました。");
+  }
+  public void setCar(int n, double g)
+  {
+    num = n;
+    gas = g;
+    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+  }
+  public void show()
+  {
+    System.out.println("車のナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
+  }
+}
+
+class RacingCar extends Car
+{
+  private int course;
+
+  public RacingCar()
+  {
+    course = 0;
+    System.out.println("レーシングカーを作成しました。");
+  }
+  public void setCourse(int c)
+  {
+    course = c;
+    System.out.println("コース番号を" + course + "にしました。");
+  }
+  public void newShow()
+  {
+    System.out.println("レーシングカーのナンバーは" + num + "です。" );
+    System.out.println("ガソリン量は" + gas + "です。");
+    System.out.println("コース番号は" + course + "です。");
+  }
+}
 
 class Sample3
 {
-  public static void main(String[] args)throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("文字列を入力して下さい。");
+    RacingCar rccar1;
+    rccar1 = new RacingCar();
 
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str1 = br.readLine();
-
-    System.out.println("検索文字を入力して下さい。");
-
-    String str2 = br.readLine();
-    char ch = str2.charAt(0);
-
-    int num = str1.indexOf(ch);
-
-    if(num != -1)
-      System.out.println(str1 + "の" + (num+1)
-        + "番目に「" + ch + "」が見つかりました。");
-    else
-      System.out.println(str1 + "に「" + ch + "」はありません。");
+    rccar1.newShow();
   }
 }

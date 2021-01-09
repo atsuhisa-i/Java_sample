@@ -1,7 +1,7 @@
 class Car
 {
-  private int num;
-  private double gas;
+  protected int num;
+  protected double gas;
 
   public Car()
   {
@@ -22,24 +22,43 @@ class Car
   }
 }
 
+class RacingCar extends Car
+{
+  private int course;
+
+  public RacingCar()
+  {
+    course = 0;
+    System.out.println("レーシングカーを作成しました。");
+  }
+  public void setCourse(int c)
+  {
+    course = c;
+    System.out.println("コース番号を" + course + "にしました。");
+  }
+  public void show()
+  {
+    System.out.println("レーシングカーのナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
+    System.out.println("コース番号は" + course + "です。");
+  }
+}
+
 class Sample6
 {
   public static void main(String[] args)
   {
-    Car car1;
-    System.out.println("car1を宣言しました。");
-    car1 = new Car();
-    car1.setCar(1234, 20.5);
+    Car[] cars;
+    cars = new Car[2];
 
-    Car car2;
-    System.out.println("car2を宣言しました。");
+    cars[0] = new Car();
+    cars[0].setCar(1234, 20.5);
 
-    car2 = car1;
-    System.out.println("car2にcar1を代入しました。");
+    cars[1] = new RacingCar();
+    cars[1].setCar(4567, 30.5);
 
-    System.out.println("car1がさす");
-    car1.show();
-    System.out.println("car2がさす");
-    car2.show();
+    for(int i=0; i< cars.length; i++){
+      cars[i].show();
+    }
   }
 }

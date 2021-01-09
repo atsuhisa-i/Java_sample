@@ -1,7 +1,7 @@
 class Car
 {
-  private int num;
-  private double gas;
+  protected int num;
+  protected double gas;
 
   public Car()
   {
@@ -9,16 +9,16 @@ class Car
     gas = 0.0;
     System.out.println("車を作成しました。");
   }
-  public void setCar(int n, double g)
+}
+
+class RacingCar extends Car
+{
+  private int course;
+
+  public RacingCar()
   {
-    num = n;
-    gas = g;
-    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
-  }
-  public void show()
-  {
-    System.out.println("車のナンバーは" + num + "です。");
-    System.out.println("ガソリン量は" + gas + "です。");
+    course = 0;
+    System.out.println("レーシングカーを作成しました。");
   }
 }
 
@@ -27,18 +27,14 @@ class Sample9
   public static void main(String[] args)
   {
     Car[] cars;
-    cars = new Car[3];
+    cars = new Car[2];
+
+    cars[0] = new Car();
+    cars[1] = new RacingCar();
 
     for(int i=0; i<cars.length; i++){
-      cars[i] = new Car();
-    }
-
-    cars[0].setCar(1234, 20.5);
-    cars[1].setCar(2345, 30.5);
-    cars[2].setCar(3456, 40.5);
-
-    for(int i=0; i<cars.length; i++){
-      cars[i].show();
+      Class c1 = cars[i].getClass();
+      System.out.println((i+1) + "番目のオブジェクトのクラスは" + c1 + "です。");
     }
   }
 }
