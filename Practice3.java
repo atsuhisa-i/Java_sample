@@ -1,20 +1,33 @@
-import java.io.*;
+class Car
+{
+  protected int num;
+  protected double gas;
+
+  public Car()
+  {
+    num = 0;
+    gas = 0.0;
+    System.out.println("車を作成しました。");
+  }
+  public void setCar(int n, double g)
+  {
+    num = n;
+    gas = g;
+    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+  }
+  public String toString()
+  {
+    String str = "ナンバー" + num + "ガソリン量" + gas;
+    return str;
+  }
+}
 
 class Practice3
 {
-  public static void main(String[] args)throws IOException
+  public static void main(String[] args)
   {
-    System.out.println("文字列を入力して下さい");
-
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str = br.readLine();
-
-    StringBuffer sb = new StringBuffer(str);
-    sb.reverse();
-
-    System.out.println(str + "の文字順を逆にすると" + sb + "になります。");
-    
+    Car car1 = new Car();
+    car1.setCar(1234, 20.5);
+    System.out.println(car1);
   }
 }
