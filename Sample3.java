@@ -1,19 +1,18 @@
-class Car
+interface iVehicle
 {
-  protected int num;
-  protected double gas;
+  void show();
+}
 
-  public Car()
-  {
-    num = 0;
-    gas = 0.0;
-    System.out.println("車を作成しました。");
-  }
-  public void setCar(int n, double g)
+class Car implements iVehicle
+{
+  private int num;
+  private double gas;
+
+  public Car(int n, double g)
   {
     num = n;
     gas = g;
-    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+    System.out.println("ナンバー" + num + "ガソリン量" + gas + "の車を作成しました。");
   }
   public void show()
   {
@@ -22,25 +21,18 @@ class Car
   }
 }
 
-class RacingCar extends Car
+class Plane implements iVehicle
 {
-  private int course;
+  private int flight;
 
-  public RacingCar()
+  public Plane(int f)
   {
-    course = 0;
-    System.out.println("レーシングカーを作成しました。");
+    flight = f;
+    System.out.println("便" + flight + "の飛行機を作成しました。");
   }
-  public void setCourse(int c)
+  public void show()
   {
-    course = c;
-    System.out.println("コース番号を" + course + "にしました。");
-  }
-  public void newShow()
-  {
-    System.out.println("レーシングカーのナンバーは" + num + "です。" );
-    System.out.println("ガソリン量は" + gas + "です。");
-    System.out.println("コース番号は" + course + "です。");
+    System.out.println("飛行機の便は" + flight + "です。");
   }
 }
 
@@ -48,9 +40,14 @@ class Sample3
 {
   public static void main(String[] args)
   {
-    RacingCar rccar1;
-    rccar1 = new RacingCar();
+    iVehicle[] ivc;
+    ivc = new iVehicle[2];
 
-    rccar1.newShow();
+    ivc[0] = new Car(1234, 20.5);
+    ivc[1] = new Plane(232);
+
+    for(int i=0; i<ivc.length; i++){
+      ivc[i].show();
+    }
   }
 }
