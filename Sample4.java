@@ -1,32 +1,34 @@
-interface iVehicle
+class CarException extends Exception
 {
-  void vShow();
 }
 
-interface iMaterial
-{
-  void mShow();
-}
-
-class Car implements iVehicle, iMaterial
+class Car
 {
   private int num;
   private double gas;
 
-  public Car(int n, double g)
+  public Car()
   {
-    num = n;
-    gas = g;
-    System.out.println("ナンバー" + num + "ガソリン量" + gas + "の車を作成しました。");
+    num = 0;
+    gas = 0.0;
+    System.out.println("車を作成しました。");
   }
-  public void vShow()
+  public void setCar(int n, double g)throws CarException
+  {
+    if(g < 0){
+      CarException e = new CarException();
+      throw e;
+    }
+    else{
+      num = n;
+      gas = g;
+      System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
+    }
+  }
+  public void show()
   {
     System.out.println("車のナンバーは" + num + "です。");
     System.out.println("ガソリン量は" + gas + "です。");
-  }
-  public void mShow()
-  {
-    System.out.println("車の材質は鉄です。");
   }
 }
 
@@ -34,8 +36,13 @@ class Sample4
 {
   public static void main(String[] args)
   {
-    Car car1 = new Car(1234, 20.5);
-    car1.vShow();
-    car1.mShow();
+    Car car1 = new Car();
+    try{
+      car1.setCar(1234, -10.0);
+    }
+    catch(CarException e){
+      System.out.println(e + "が送出されました。");
+    }
+    car1.show();
   }
 }
