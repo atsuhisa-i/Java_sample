@@ -1,7 +1,9 @@
+package pa.sub;
+
 class Car
 {
-  protected int num;
-  protected double gas;
+  private int num;
+  private double gas;
 
   public Car()
   {
@@ -15,10 +17,10 @@ class Car
     gas = g;
     System.out.println("ナンバーを" + num + "ガソリン量を" + gas + "にしました。");
   }
-  public String toString()
+  public void show()
   {
-    String str = "ナンバー：" + num + "ガソリン量：" + gas;
-    return str;
+    System.out.println("車のナンバーは" + num + "です。");
+    System.out.println("ガソリン量は" + gas + "です。");
   }
 }
 
@@ -27,8 +29,6 @@ class Sample7
   public static void main(String args[])
   {
     Car car1 = new Car();
-    car1.setCar(1234, 20.5);
-
-    System.out.println(car1);
+    car1.show();
   }
 }
