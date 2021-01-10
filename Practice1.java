@@ -4,14 +4,17 @@ class Practice1
 {
   public static void main(String[] args)
   {
+    if(args.length !=1){
+      System.out.println("ファイル名を正しく指定して下さい。");
+      System.exit(1);
+    }
     try{
+
       PrintWriter pw = new PrintWriter
-        (new BufferedWriter(new FileWriter("test1.txt")));
+      (new BufferedWriter(new FileWriter(args[0])));
       
       pw.println("A long time ago,");
-      pw.println("There was a little girl");
-      System.out.println("ファイルに書き込みました。");
-
+      pw.println("There was a little girl.");
       pw.close();
     }
     catch(IOException e){
