@@ -1,30 +1,25 @@
-class Car
-{
-  protected int num;
-  protected double gas;
-
-  public Car()
-  {
-    num = 0;
-    gas = 0.0;
-    System.out.println("車を作成しました。");
-  }
-}
+import java.io.*;
 
 class Sample8
 {
   public static void main(String[] args)
   {
-    Car car1 = new Car();
-    Car car2 = new Car();
+    try{
+      BufferedReader br =
+        new BufferedReader(new FileReader("test1.txt"));
+      
+      String str1 = br.readLine();
+      String str2 = br.readLine();
 
-    Car car3;
-    car3 = car1;
+      System.out.println("ファイルに書き込まれている2つの文字列は");
+      System.out.println(str1 + "です。");
+      System.out.println(str2 + "です。");
 
-    boolean bl1 = car1.equals(car2);
-    boolean bl2 = car1.equals(car3);
-
-    System.out.println("car1とcar2が同じか調べたところ" + bl1 + "でした。");
-    System.out.println("car1とcar3が同じか調べたところ" + bl2 + "でした。");
+      br.close();
+    }
+    catch(IOException e){
+      System.out.println("入出力エラーです。");
+    }
+    
   }
 }

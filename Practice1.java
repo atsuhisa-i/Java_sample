@@ -1,37 +1,24 @@
-class MyPoint
-{
-  int x;
-  int y;
-  void setX(int px)
-  {
-    x = px;
-  }
-  void setY(int py)
-  {
-    y = py;
-  }
-  int getX()
-  {
-    return x;
-  }
-  int getY()
-  {
-    return y;
-  }
-}
+import java.io.*;
 
 class Practice1
 {
   public static void main(String[] args)
   {
-    MyPoint p1;
-    p1 = new MyPoint();
-    p1.setX(10);
-    p1.setY(5);
+    if(args.length !=1){
+      System.out.println("ファイル名を正しく指定して下さい。");
+      System.exit(1);
+    }
+    try{
 
-    int px = p1.getX();
-    int py = p1.getY();
-
-    System.out.println("X座標は" + px + "Y座標は" + py + "でした。");
+      PrintWriter pw = new PrintWriter
+      (new BufferedWriter(new FileWriter(args[0])));
+      
+      pw.println("A long time ago,");
+      pw.println("There was a little girl.");
+      pw.close();
+    }
+    catch(IOException e){
+      System.out.println("入出力エラーです。");
+    }
   }
 }

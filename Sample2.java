@@ -1,4 +1,4 @@
-class Sample1
+class Sample2
 {
   public static void main(String[] args)
   {
@@ -14,6 +14,9 @@ class Sample1
     catch(ArrayIndexOutOfBoundsException e){
 
       System.out.println("配列の要素を超えています。");
+    }
+    finally{
+      System.out.println("最後に必ずこの処理をします。");
     }
     System.out.println("無事終了しました。");
   }

@@ -32,17 +32,13 @@ class Car
   }
 }
 
-class Sample4
+class Sample5
 {
   public static void main(String[] args)
+    throws CarException
   {
     Car car1 = new Car();
-    try{
-      car1.setCar(1234, -10.0);
-    }
-    catch(CarException e){
-      System.out.println(e + "が送出されました。");
-    }
+    car1.setCar(1234, -10.0);
     car1.show();
   }
 }
