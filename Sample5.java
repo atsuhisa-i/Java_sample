@@ -1,44 +1,31 @@
-class CarException extends Exception
+class Car extends Thread
 {
-}
+  private String name;
 
-class Car
-{
-  private int num;
-  private double gas;
-
-  public Car()
+  public Car(String nm)
   {
-    num = 0;
-    gas = 0.0;
-    System.out.println("車を作成しました。");
+    name = nm;
   }
-  public void setCar(int n, double g)throws CarException
+  public void run()
   {
-    if(g < 0){
-      CarException e = new CarException();
-      throw e;
+    for(int i=0; i<5; i++){
+      System.out.println(name + "の処理をしています。");
     }
-    else{
-      num = n;
-      gas = g;
-      System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
-    }
-  }
-  public void show()
-  {
-    System.out.println("車のナンバーは" + num + "です。");
-    System.out.println("ガソリン量は" + gas + "です。");
   }
 }
 
 class Sample5
 {
   public static void main(String[] args)
-    throws CarException
   {
-    Car car1 = new Car();
-    car1.setCar(1234, -10.0);
-    car1.show();
+    Car car1 = new Car("1号車");
+    car1.start();
+
+    try{
+      car1.join();
+    }
+    catch(InterruptedException e){}
+
+    System.out.println("main()の処理を終わります。");
   }
 }

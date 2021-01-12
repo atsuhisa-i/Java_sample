@@ -1,23 +1,31 @@
+class Car extends Thread
+{
+  private String name;
+
+  public Car(String nm)
+  {
+    name = nm;
+  }
+  public void run()
+  {
+    for(int i=0; i<5; i++){
+      System.out.println(name + "の処理をしています。");
+    }
+  }
+}
+
 class Sample2
 {
   public static void main(String[] args)
   {
-    try{
-      int[] test;
-      test = new int[5];
+    Car car1 = new Car("１号車");
+    car1.start();
 
-      System.out.println("test[10]に値を代入します。");
+    Car car2 = new Car("2号車");
+    car2.start();
 
-      test[10] = 80;
-      System.out.println("test[10]に80を代入しました。");
+    for(int i=0; i<5; i++){
+      System.out.println("main()の処理をしています。");
     }
-    catch(ArrayIndexOutOfBoundsException e){
-
-      System.out.println("配列の要素を超えています。");
-    }
-    finally{
-      System.out.println("最後に必ずこの処理をします。");
-    }
-    System.out.println("無事終了しました。");
   }
 }

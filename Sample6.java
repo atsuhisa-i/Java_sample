@@ -1,20 +1,29 @@
-import java.io.*;
+class Car implements Runnable
+{
+  private String name;
+
+  public Car(String nm)
+  {
+    name = nm;
+  }
+  public void run()
+  {
+    for(int i=0; i<5; i++){
+      System.out.println(name + "の処理をしています。");
+    }
+  }
+}
 
 class Sample6
 {
   public static void main(String[] args)
   {
-    System.out.println("文字列を入力して下さい。");
+    Car car1 = new Car("1号車");
+    Thread th1 = new Thread(car1);
+    th1.start();
 
-    try{
-      BufferedReader br =
-        new BufferedReader(new InputStreamReader(System.in));
-
-      String str = br.readLine();
-      System.out.println(str + "が入力されました。");
-    }
-    catch(IOException e){
-      System.out.println("入出力エラーです。");
+    for(int i=0; i<5; i++){
+      System.out.println("main()の処理をしています。");
     }
   }
 }

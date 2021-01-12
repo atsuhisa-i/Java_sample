@@ -1,24 +1,21 @@
-class Car
+class Car implements Runnable
 {
-  protected int num;
-  protected double gas;
+  private String name;
 
-  public Car()
+  public Car(String nm)
   {
-    num = 0;
-    gas = 0.0;
-    System.out.println("車を作成しました。");
+    name = nm;
   }
-  public void setCar(int n, double g)
+  public void run()
   {
-    num = n;
-    gas = g;
-    System.out.println("ナンバーを" + num + "にガソリン量を" + gas + "にしました。");
-  }
-  public String toString()
-  {
-    String str = "ナンバー" + num + "ガソリン量" + gas;
-    return str;
+    for(int i=0; i<5; i++){
+      try{
+        // Runnableインターフェイスを使用する場合、sleepの前にThreadをつける。
+        Thread.sleep(1000);
+        System.out.println(name + "の処理をしています。");
+      }
+      catch(InterruptedException e){}
+    }
   }
 }
 
@@ -26,8 +23,12 @@ class Practice3
 {
   public static void main(String[] args)
   {
-    Car car1 = new Car();
-    car1.setCar(1234, 20.5);
-    System.out.println(car1);
+    Car car1 = new Car("1号車");
+    Thread th1 = new Thread(car1);
+    th1.start();
+
+    for(int i=0; i<5; i++){
+      System.out.println("main()の処理をしています。");
+    }
   }
 }

@@ -1,21 +1,45 @@
-import java.io.*;
+class Company
+{
+  private int sum = 0;
+  // synchronizedという指定を付けないと、複数のスレッドが同時にアクセスした際、結果に矛盾が生じる。
+  // synchronizedをつけることで、あるスレッドが処理をしている間は、他のスレッドはこのメソッドを呼び出すことができなくなる。
+  public synchronized void add(int a)
+  {
+    int tmp = sum;
+    System.out.println("現在、合計額は" + tmp + "円です。");
+    System.out.println(a + "円稼ぎました。");
+    tmp = tmp + a;
+    System.out.println("合計額を" + tmp + "円にします。");
+    sum = tmp;
+  }
+}
+
+class Driver extends Thread
+{
+  private Company comp;
+
+  public Driver(Company c)
+  {
+    comp = c;
+  }
+  public void run()
+  {
+    for(int i=0; i<3; i++){
+      comp.add(50);
+    }
+  }
+}
 
 class Sample7
 {
   public static void main(String[] args)
   {
-    try{
-      PrintWriter pw = new PrintWriter
-      (new BufferedWriter(new FileWriter("test1.txt")));
+    Company cmp = new Company();
 
-      pw.println("Hello!");
-      pw.println("GoodBye!");
-      System.out.println("ファイルに書き込みました。");
+    Driver drv1 = new Driver(cmp);
+    drv1.start();
 
-      pw.close();
-    }
-    catch(IOException e){
-      System.out.println("入出力エラーです。");
-    }
+    Driver drv2 = new Driver(cmp);
+    drv2.start();
   }
 }
