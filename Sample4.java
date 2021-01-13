@@ -1,32 +1,48 @@
-class Car extends Thread
-{
-  private String name;
+import java.awt.*;
+import java.awt.event.*;
 
-  public Car(String nm)
-  {
-    name = nm;
-  }
-  public void run()
-  {
-    for(int i=0; i<5; i++){
-      System.out.println(name + "の処理をしています。");
-    }
-  }
-}
-
-class Sample4
+public class Sample4 extends Frame
 {
+  private Button bt;
+
   public static void main(String[] args)
   {
-    Car car1 = new Car("1号車");
-    car1.start();
+    Sample4 sm = new Sample4();
+  }
+  public Sample4()
+  {
+    super("サンプル");
 
-    for(int i=0; i<5; i++){
-      try{
-        Thread.sleep(1000);
-        System.out.println("main()の処理をしています。");
-      }
-      catch(InterruptedException e){}
+    bt = new Button("ようこそ。");
+    add(bt);
+
+    addWindowListener(new SampleWindowListener());
+    bt.addMouseListener(new SampleMouseListener());
+
+    setSize(250, 200);
+    setVisible(true);
+  }
+
+  class SampleWindowListener extends WindowAdapter
+  {
+    public void windowClosing(WindowEvent e)
+    {
+      System.exit(0);
+    }
+  }
+
+  class SampleMouseListener implements MouseListener
+  {
+    public void mouseClicked(MouseEvent e){}
+    public void mouseReleased(MouseEvent e){}
+    public void mousePressed(MouseEvent e){}
+    public void mouseEntered(MouseEvent e)
+    {
+      bt.setLabel("いらっしゃいませ。");
+    }
+    public void mouseExited(MouseEvent e)
+    {
+      bt.setLabel("ようこそ。");
     }
   }
 }
