@@ -1,31 +1,36 @@
-class Car extends Thread
-{
-  private String name;
+import java.awt.*;
+import java.awt.event.*;
 
-  public Car(String nm)
-  {
-    name = nm;
-  }
-  public void run()
-  {
-    for(int i=0; i<5; i++){
-      System.out.println(name + "の処理をしています。");
-    }
-  }
-}
-
-class Sample5
+class Sample5 extends Frame
 {
+  Image im;
+
   public static void main(String[] args)
   {
-    Car car1 = new Car("1号車");
-    car1.start();
+    Sample5 sm = new Sample5();
+  }
+  public Sample5()
+  {
+    super("サンプル");
 
-    try{
-      car1.join();
+    Toolkit tk = getToolkit();
+    im = tk.getImage("時計.jpg");
+
+    addWindowListener(new SampleWindowListener());
+
+    setSize(250, 200);
+    setVisible(true);
+  }
+  public void paint(Graphics g)
+  {
+    g.drawImage(im, 100, 100, this);
+  }
+
+  class SampleWindowListener extends WindowAdapter
+  {
+    public void windowClosing(WindowEvent e)
+    {
+      System.exit(0);
     }
-    catch(InterruptedException e){}
-
-    System.out.println("main()の処理を終わります。");
   }
 }
