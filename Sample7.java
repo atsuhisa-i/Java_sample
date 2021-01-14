@@ -1,45 +1,48 @@
-class Company
+import java.awt.*;
+import java.awt.event.*;
+
+public class Sample7 extends Frame implements Runnable
 {
-  private int sum = 0;
-  // synchronizedという指定を付けないと、複数のスレッドが同時にアクセスした際、結果に矛盾が生じる。
-  // synchronizedをつけることで、あるスレッドが処理をしている間は、他のスレッドはこのメソッドを呼び出すことができなくなる。
-  public synchronized void add(int a)
+  int num;
+
+  public static void main(String[] args)
   {
-    int tmp = sum;
-    System.out.println("現在、合計額は" + tmp + "円です。");
-    System.out.println(a + "円稼ぎました。");
-    tmp = tmp + a;
-    System.out.println("合計額を" + tmp + "円にします。");
-    sum = tmp;
+    Sample7 sm = new Sample7();
   }
-}
-
-class Driver extends Thread
-{
-  private Company comp;
-
-  public Driver(Company c)
+  public Sample7()
   {
-    comp = c;
+    super("サンプル");
+
+    addWindowListener(new SampleWindowListener());
+
+    Thread th;
+    th = new Thread(this);
+    th.start();
+
+    setSize(250, 200);
+    setVisible(true);
   }
   public void run()
   {
-    for(int i=0; i<3; i++){
-      comp.add(50);
-    }
+    try{
+      for(int i=0; i<10; i++){
+        num = i;
+        repaint();
+        Thread.sleep(1000);
+      }
+    }catch(InterruptedException e){}
   }
-}
-
-class Sample7
-{
-  public static void main(String[] args)
+  public void paint(Graphics g)
   {
-    Company cmp = new Company();
+    String str = num + "です。";
+    g.drawString(str, 100, 100);
+  }
 
-    Driver drv1 = new Driver(cmp);
-    drv1.start();
-
-    Driver drv2 = new Driver(cmp);
-    drv2.start();
+  class SampleWindowListener extends WindowAdapter
+  {
+    public void windowClosing(WindowEvent e)
+    {
+      System.exit(0);
+    }
   }
 }
