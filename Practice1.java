@@ -1,34 +1,36 @@
-class Car implements Runnable
-{
-  private String name;
+import java.awt.*;
+import java.awt.event.*;
 
-  public Car(String nm)
-  {
-    name = nm;
-  }
-  public void run()
-  {
-    for(int i=0; i<5; i++){
-      System.out.println(name + "の処理をしています。");
-    }
-  }
-}
-
-class Practice1
+public class Practice1 extends Frame 
 {
+  private Label lb;
+
   public static void main(String[] args)
   {
-    Car car1 = new Car("1号車");
-    Car car2 = new Car("2号車");
+    Practice1 pr = new Practice1(); 
+  }
+  public Practice1()
+  {
+    super("サンプル");
 
-    Thread th1 = new Thread(car1);
-    Thread th2 = new Thread(car2);
+    lb = new Label("Hello");
 
-    th1.start();
-    th2.start();
+    add(lb);
 
-    for(int i=0; i<5; i++){
-      System.out.println("main()の処理をしています。");
+    lb.setForeground(Color.blue);
+    lb.setFont(new Font("Serif", Font.ITALIC, 32));
+
+    addWindowListener(new SampleWindowListener());
+
+    setSize(250, 200);
+    setVisible(true);
+  }
+
+  class SampleWindowListener extends WindowAdapter
+  {
+    public void windowClosing(WindowEvent e)
+    {
+      System.exit(0);
     }
   }
 }
