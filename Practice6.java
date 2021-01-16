@@ -1,23 +1,54 @@
-import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
 
-class Practice6
+public class Practice6 extends Frame
 {
-  public static void main(String[] args) throws IOException
+  boolean bl;
+
+  public static void main(String[] args)
   {
-    System.out.println("三角形の高さと底辺を入力して下さい。");
+    Practice6 pr = new Practice6();
+  }
+  public Practice6()
+  {
+    super("サンプル");
 
-    BufferedReader br = 
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str1 = br.readLine();
-    String str2 = br.readLine();
+    bl = true;
 
-    int num1 = Integer.parseInt(str1);
-    int num2 = Integer.parseInt(str2);
+    addWindowListener(new SampleWindowListener());
+    addMouseListener(new SampleMouseAdapter());
 
-    int ans = (num1 * num2)/2;
+    setSize(250, 200);
+    setVisible(true);
+  }
+  public void paint(Graphics g)
+  {
+    if(bl == true){
+      g.drawString("こんにちは。", 100, 100);
+    }
+    else{
+      g.drawString("さようなら。", 100, 100);
+    }
+  }
 
-    System.out.println("三角形の面積は" + ans + "です。");
-
+  class SampleWindowListener extends WindowAdapter
+  {
+    public void windowClosing(WindowEvent e)
+    {
+      System.exit(0);
+    }
+  }
+  class SampleMouseAdapter extends MouseAdapter
+  {
+    public void mouseEntered(MouseEvent e)
+    {
+      bl = true;
+      repaint();
+    }
+    public void mouseExited(MouseEvent e)
+    {
+      bl = false;
+      repaint();
+    }
   }
 }
