@@ -1,23 +1,48 @@
-import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
 
-class Practice5
+public class Practice5 extends Frame
 {
-  public static void main(String[] args) throws IOException
+  Image im;
+  int x = 10;
+  int y = 10;
+
+  public static void main(String[] args)
   {
-    System.out.println("整数を2つ入力して下さい");
+    Practice5 pr = new Practice5();
+  }
+  public Practice5()
+  {
+    super("サンプル");
 
-    BufferedReader br = 
-     new BufferedReader(new InputStreamReader(System.in));
-    
-    String str1 = br.readLine();
-    int num1 = Integer.parseInt(str1);
+    Toolkit tk = getToolkit();
+    im = tk.getImage("時計.jpg");
 
-    String str2 = br.readLine();
-    int num2 = Integer.parseInt(str2);
+    addWindowListener(new SampleWindowListener());
+    addMouseListener(new SampleMouseAdapter());
 
-    int ans = Math.min(num1, num2);
+    setSize(250, 200);
+    setVisible(true);
+  }
+  public void paint(Graphics g)
+  {
+    g.drawImage(im, x, y, this);
+  }
 
-    System.out.println(num1 + "と" + num2 + "のうち小さい方は" + ans + "です。");
-
+  class SampleWindowListener extends WindowAdapter
+  {
+    public void windowClosing(WindowEvent e)
+    {
+      System.exit(0);
+    }
+  }
+  class SampleMouseAdapter extends MouseAdapter
+  {
+    public void mousePressed(MouseEvent e)
+    {
+      x = e.getX();
+      y = e.getY();
+      repaint();
+    }
   }
 }
