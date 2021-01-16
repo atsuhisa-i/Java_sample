@@ -1,29 +1,52 @@
-import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
 
-class Practice7
+public class Practice7 extends Frame implements Runnable
 {
-  public static void main(String[] args) throws IOException
+  int num;
+  int x;
+
+  public static void main(String[] args)
   {
-    System.out.println("科目1~5の点数を入力して下さい。");
+    Practice7 pr = new Practice7();
+  }
+  public Practice7()
+  {
+    super("サンプル");
 
-    BufferedReader br =
-      new BufferedReader(new InputStreamReader(System.in));
-    
-    String str1 = br.readLine();
-    String str2 = br.readLine();
-    String str3 = br.readLine();
-    String str4 = br.readLine();
-    String str5 = br.readLine();
+    num = 0;
+    x = 0;
 
-    int sum = 0;
+    addWindowListener(new SampleWindowListener());
 
-    sum += Integer.parseInt(str1);
-    sum += Integer.parseInt(str2);
-    sum += Integer.parseInt(str3);
-    sum += Integer.parseInt(str4);
-    sum += Integer.parseInt(str5);
+    Thread th;
+    th = new Thread(this);
+    th.start();
 
-    System.out.println("5科目の合計点は" + sum + "点です。");
-    System.out.println("5科目の平均点は" + sum/(double)5 + "点です。");
+    setSize(250, 200);
+    setVisible(true);
+  }
+  public void run()
+  {
+    try{
+      for(int i=0; i<10; i++){
+        num = i;
+        x = i * 10;
+        repaint();
+        Thread.sleep(1000);
+      }
+    }catch(InterruptedException e){}
+  }
+  public void paint(Graphics g)
+  {
+    String str = "横にズレます。";
+    g.drawString(str, x+100, 100);
+  }
+  class SampleWindowListener extends WindowAdapter
+  {
+    public void windowClosing(WindowEvent e)
+    {
+      System.exit(0);
+    }
   }
 }
